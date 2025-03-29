@@ -7,5 +7,6 @@ import java.util.List;
 
 public abstract class Room {
     private List<Item> items;
-    private List<NPC> nps;
+    private List<NPC> npcs;
+    private List<Integer>  neighborsIndexes;
 }

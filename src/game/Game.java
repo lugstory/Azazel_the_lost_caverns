@@ -2,10 +2,23 @@ package game;
 
 import world.rooms.Room;
 
-import java.util.List;
-
 public class Game {
     private Player player;
-    private List<Room> rooms;
+    private Room[] allRooms;
     private Room currentRoom;
+
+    public Room[] getAllRooms() {
+        return allRooms;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+    public Room getRoomAtIndex(int index) {
+        return allRooms[index];
+    }
 }
