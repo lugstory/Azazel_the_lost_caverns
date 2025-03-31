@@ -21,4 +21,8 @@ public class Game {
     public Room getRoomAtIndex(int index) {
         return allRooms[index];
     }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
 }
