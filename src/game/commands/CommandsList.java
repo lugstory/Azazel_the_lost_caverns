@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandsList {
-    private final Map<String, Command> commands = new HashMap<>();
+    private final Map<String, Command> commands;
 
     public CommandsList() {
+        this.commands = new HashMap<>();
         registerCommand("walk", new Walk());
-
     }
 
     private void registerCommand(String name, Command command) {
@@ -20,7 +20,7 @@ public class CommandsList {
     }
 
     public void printAllCommands() {
-        System.out.println("Dostupné příkazy:");
+        System.out.println("Available commands:");
         for (Map.Entry<String, Command> entry : commands.entrySet()) {
             System.out.println(" - " + entry.getValue().getUsage());
         }

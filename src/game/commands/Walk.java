@@ -6,6 +6,8 @@ import world.rooms.Room;
 import java.util.Map;
 
 public class Walk implements Command{
+    public Walk() {
+    }
 
     @Override
     public void execute(Game game, String[] args) {
@@ -28,5 +30,8 @@ public class Walk implements Command{
         return directionMap.getOrDefault(direction, -1); // Vrací -1, pokud není nalezena žádná odpovídající hodnota
     }
 
-
+    @Override
+    public String getUsage() {
+        return "walk <direction> (north, east, south, west), walks into that direction";
+    }
 }
