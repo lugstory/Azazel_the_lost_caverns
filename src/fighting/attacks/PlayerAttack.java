@@ -5,7 +5,7 @@ import game.Player;
 
 public abstract class PlayerAttack {
     private final String name;
-    private final int damage; // základní poškození
+    private final int damage; // base damage
 
     public PlayerAttack(String name, int damage) {
         this.name = name;
@@ -21,7 +21,7 @@ public abstract class PlayerAttack {
     }
 
     /**
-     * Provede útok hráče na nepřítele. Poškození může být ovlivněno staty hráče.
+     * Attacks the enemy, may be influenced by the player's stats.
      */
     public abstract boolean execute(Player player, Enemy target);
 }

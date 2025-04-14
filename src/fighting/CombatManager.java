@@ -18,14 +18,14 @@ public class CombatManager {
 
         while (enemy.getHealth() > 0 && player.getHealth() > 0) {
 
-            // Tah hráče
-            System.out.println("\n--- Tvůj tah ---");
+            // Player's turn
+            System.out.println("\n--- Your turn ---");
             List<PlayerAttack> attacks = player.getAttacks();
             for (int i = 0; i < attacks.size(); i++) {
                 System.out.println((i + 1) + ": " + attacks.get(i).getName());
             }
 
-            System.out.print("Zvol útok (1-" + attacks.size() + "): ");
+            System.out.print("Pick the attack (1-" + attacks.size() + "): ");
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
 
             PlayerAttack chosenAttack = attacks.get(choice);
@@ -33,25 +33,25 @@ public class CombatManager {
 
             if (success) {
                 enemy.setHealth(enemy.getHealth() - chosenAttack.getDamage());
-                System.out.println("Způsobil jsi " + chosenAttack.getDamage() + " poškození!");
+                System.out.println("You had done " + chosenAttack.getDamage() + " damage!");
             } else {
-                System.out.println("Minul jsi!");
+                System.out.println("You missed!");
             }
 
             if (enemy.getHealth() <= 0) {
-                System.out.println("\nNepřítel " + enemy.getName() + " byl poražen!");
+                System.out.println("\nThe enemy " + enemy.getName() + " was killed!");
                 player.reduceActiveItemCooldown();
                 break;
             }
 
-            // Tah nepřítele
-            System.out.println("\n--- Tah nepřítele ---");
+            // Enemy's turn
+            System.out.println("\n--- Enemy's turn ---");
             EnemyAttack attack = enemy.getRandomAttack();
-            System.out.println(enemy.getName() + " použil útok: " + attack.getName());
+            System.out.println(enemy.getName() + " used the attack: " + attack.getName());
             attack.executeOnPlayer(player);
 
             if (player.getHealth() <= 0) {
-                System.out.println("Byl jsi poražen... Nasťa pláče 💔");
+                System.out.println("You died, try again!");
                 break;
             }
         }
