@@ -7,6 +7,12 @@ public class Game {
     private Room[] allRooms;
     private Room currentRoom;
 
+    public Game(Room[] allRooms, Room currentRoom) {
+        this.player = new Player();
+        this.allRooms = allRooms;
+        this.currentRoom = currentRoom;
+    }
+
     public Room[] getAllRooms() {
         return allRooms;
     }
@@ -24,5 +30,12 @@ public class Game {
 
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
+    }
+
+    public boolean activateActiveItem() {
+        if (player.getActiveItem() == null) return false;
+        if (!player.getActiveItem().isReady()) return false;
+        player.getActiveItem().activate(this);
+        return true;
     }
 }

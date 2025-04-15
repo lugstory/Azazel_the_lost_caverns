@@ -1,6 +1,6 @@
 package game;
 
-import fighting.attacks.PlayerAttack;
+import fighting.attacks.player.PlayerAttack;
 import items.ActiveItem;
 import items.PassiveItem;
 
@@ -18,7 +18,7 @@ public class Player {
     private List<PlayerAttack> attacks;
 
     public Player() {
-        this.health = 6;
+        this.health = 3;
         this.damage = 1;
         this.luck = 0;
         this.passiveItems = new ArrayList<>();
@@ -26,13 +26,13 @@ public class Player {
         this.activeItem = null;
     }
 
-    // ==== Zdraví ====
+    // ==== Health ====
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
-        this.health = Math.max(0, Math.min(health, 12)); // clamp na 0–12
+        this.health = Math.max(0, Math.min(health, 12));
     }
 
     // ==== Damage a Luck ====
@@ -76,6 +76,7 @@ public class Player {
             activeItem.reduceCooldown();
         }
     }
+
 
     // ==== Útoky ====
     public List<PlayerAttack> getAttacks() {

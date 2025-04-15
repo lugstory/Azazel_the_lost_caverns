@@ -9,6 +9,9 @@ public class CommandsList {
     public CommandsList() {
         this.commands = new HashMap<>();
         registerCommand("walk", new Walk());
+        registerCommand("activate", new Activate());
+        registerCommand("fight", new Fight());
+
     }
 
     private void registerCommand(String name, Command command) {

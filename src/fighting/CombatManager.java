@@ -1,7 +1,7 @@
 package fighting;
 
-import fighting.attacks.EnemyAttack;
-import fighting.attacks.PlayerAttack;
+import fighting.attacks.enemy.EnemyAttack;
+import fighting.attacks.player.PlayerAttack;
 import game.Game;
 import game.Player;
 import world.npcs.Enemy;
@@ -11,10 +11,10 @@ import java.util.Scanner;
 
 public class CombatManager {
 
-    public void startCombat(Game game, Enemy enemy, Scanner scanner) {
+    public static void startCombat(Game game, Enemy enemy, Scanner scanner) {
         Player player = game.getPlayer();
 
-        System.out.println("Začíná boj s nepřítelem: " + enemy.getName());
+        System.out.println("Starting a fight with " + enemy.getName());
 
         while (enemy.getHealth() > 0 && player.getHealth() > 0) {
 

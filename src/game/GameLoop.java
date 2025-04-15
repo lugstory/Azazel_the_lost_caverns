@@ -19,11 +19,10 @@ public class GameLoop {
     }
 
     public void start() {
-        System.out.println("Vítej v Azazel – the lost caverns!");
-        System.out.println("Nasťa ti drží palce 💘");
+        System.out.println("Welcome to Azazel – the lost caverns!");
         System.out.println();
 
-        while (true) {
+        while (game.getPlayer().getHealth()>=1) {
             commandsList.printAllCommands();
             System.out.print("\nZadej příkaz: ");
             String input = scanner.nextLine();

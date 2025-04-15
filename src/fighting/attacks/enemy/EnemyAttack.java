@@ -1,4 +1,4 @@
-package fighting.attacks;
+package fighting.attacks.enemy;
 
 import game.Player;
 

@@ -5,13 +5,32 @@ import world.npcs.NPC;
 
 import java.util.List;
 
-public abstract class Room {
+public class Room {
+    private String name;
     private Type type;
     private List<Item> items;
     private List<NPC> npcs;
-    private List<Integer>  neighborsIndexes; //implement this with a set orientation, so that you can use directions to
-                                             //move to different rooms, eg. null,null,Room,null => south has a room
-                                             //dont forget to implement big rooms
+    private List<Integer> neighborsIndexes;
+
+    public Room(String name, Type type, List<Item> items, List<NPC> npcs, List<Integer> neighborsIndexes) {
+        this.name = name;
+        this.type = type;
+        this.items = items;
+        this.npcs = npcs;
+        this.neighborsIndexes = neighborsIndexes;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public List<NPC> getNpcs() {
+        return npcs;
+    }
 
     public List<Integer> getNeighborsIndexes() {
         return neighborsIndexes;

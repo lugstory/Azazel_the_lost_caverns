@@ -1,11 +1,11 @@
 package world.npcs;
 
-import fighting.attacks.EnemyAttack;
+import fighting.attacks.enemy.EnemyAttack;
 
 import java.util.List;
 import java.util.Random;
 
-public class Enemy extends NPC {
+public abstract class Enemy extends NPC {
     private int health;
     private List<EnemyAttack> attacks;
     private String dialog; // může být null
@@ -45,5 +45,13 @@ public class Enemy extends NPC {
 
     public boolean hasDialog() {
         return dialog != null && !dialog.isBlank();
+    }
+
+    public void setAttacks(List<EnemyAttack> attacks) {
+        this.attacks = attacks;
+    }
+
+    public void setDialog(String dialog) {
+        this.dialog = dialog;
     }
 }

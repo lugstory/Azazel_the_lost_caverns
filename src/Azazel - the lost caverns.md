@@ -13,7 +13,7 @@
 - Azazel přijde do kontaktu s desítkami příšer a unikátními místnostmi, po zabití příšer v jednotlivých místnostech dostane (či nedostane) odměnu ve formě předmětů, které bude moci využít v boji.
 
 ### Prostory/místnosti: Popis jednotlivých míst, kde se bude hra odehrávat, a jak jsou propojené. Vytvořte grafický plánek propojení jednotlivých míst (obrázek/diagram).
-![Mapa](https://i.postimg.cc/MHpg5hzq/mapa.png)
+![Mapa](https://i.postimg.cc/dtyKyh60/mapa.png)
 
 ### Důležité postavy: Kdo se ve hře vyskytuje? (např. spojenci, nepřátelé, neutrální postavy)
 - game obsahuje pouze nepřátele - příšery.
