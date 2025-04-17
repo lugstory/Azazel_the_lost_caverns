@@ -29,7 +29,11 @@ public class Take implements Command {
             }
 
             Item item = items.get(index);
-            game.getPlayer().setActiveItem((ActiveItem) item);
+            if (item instanceof PassiveItem){
+                game.getPlayer().addPassiveItem((PassiveItem) item);
+            } else {
+                game.getPlayer().setActiveItem((ActiveItem) item);
+            }
 
             System.out.println("You picked up: " + item.getName());
         } catch (NumberFormatException e) {
@@ -38,6 +42,6 @@ public class Take implements Command {
     }
     @Override
     public String getUsage() {
-        return "take <index>, Takes the item at the specified index.";
+        return "take <index> - Takes the item at the specified index.";
     }
 }

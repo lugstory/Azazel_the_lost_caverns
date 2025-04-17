@@ -50,6 +50,6 @@ public class Fight implements Command {
 
     @Override
     public String getUsage() {
-        return "fight <enemyIndex> - starts combat with the selected enemy";
+        return "fight <enemyIndex> - Starts combat with the selected enemy.";
     }
 }

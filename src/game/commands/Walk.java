@@ -38,6 +38,6 @@ public class Walk implements Command {
 
     @Override
     public String getUsage() {
-        return "walk <doorIndex> - enters the room through the selected door (e.g. walk 0)";
+        return "walk <doorIndex> - Enters the room through the selected door (e.g. walk 0)";
     }
 }

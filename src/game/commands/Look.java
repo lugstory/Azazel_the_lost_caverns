@@ -15,6 +15,6 @@ public class Look implements Command {
 
     @Override
     public String getUsage() {
-        return "look - looks through the room and lists all NPCs and items.";
+        return "look - Looks through the room and lists all NPCs and items.";
     }
 }

@@ -14,6 +14,6 @@ public class Activate implements Command{
     }
     @Override
     public String getUsage() {
-        return "activate, activates your active item";
+        return "activate - Activates your active item.";
     }
 }

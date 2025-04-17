@@ -19,14 +19,14 @@ public class Info implements Command{
     }
     public String passiveItemsString(){
         StringBuilder itemsString = new StringBuilder();
-        itemsString.append(" - Passive Items: ");
         game.getPlayer().getPassiveItems().forEach(passiveItem -> {
             itemsString.append(" - ").append(passiveItem).append(": ").append(passiveItem.getDescription());
         });
+        itemsString.insert(0," - Passive Items: ");
         return itemsString.toString();
     }
     @Override
     public String getUsage() {
-        return "info, Shows you the info about Azazel.";
+        return "info - Shows you the info about Azazel.";
     }
 }

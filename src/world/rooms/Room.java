@@ -29,7 +29,7 @@ public class Room implements Serializable {
         for (Integer index : neighborsIndexes) {
             Room room = game.getAllRooms()[index];
             if (room != null) {
-                System.out.println("Door number "+index);
+                System.out.println("Door to room number "+index);
             }
         }
         if (npcs.isEmpty() && items.isEmpty()) {
@@ -45,7 +45,7 @@ public class Room implements Serializable {
             if (!items.isEmpty()) {
                 System.out.println("Items in the room:");
                 for (Item item : items) {
-                    System.out.println(" - " + item.getName());
+                    System.out.println(" - " + item.getName()+" ("+item.getClass().getSuperclass().getSimpleName()+")");
                 }
             }
         }
