@@ -24,7 +24,7 @@ public class GameLoop {
 
         while (game.getPlayer().getHealth()>=1) {
             commandsList.printAllCommands();
-            System.out.print("\nZadej příkaz: ");
+            System.out.print("\n>> ");
             String input = scanner.nextLine();
             String[] parts = input.trim().split(" ");
             if (parts.length == 0 || parts[0].isEmpty()) continue;
@@ -37,7 +37,7 @@ public class GameLoop {
             if (command != null) {
                 command.execute(game, args);
             } else {
-                System.out.println("Neznámý příkaz.");
+                System.out.println("Unknown command.");
             }
         }
     }

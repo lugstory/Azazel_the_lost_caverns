@@ -3,7 +3,9 @@ package fighting.attacks.player;
 import world.npcs.Enemy;
 import game.Player;
 
-public abstract class PlayerAttack {
+import java.io.Serializable;
+
+public abstract class PlayerAttack implements Serializable {
     private final String name;
     private final int damage; // base damage
 

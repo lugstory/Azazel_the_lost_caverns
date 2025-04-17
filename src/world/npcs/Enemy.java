@@ -2,10 +2,11 @@ package world.npcs;
 
 import fighting.attacks.enemy.EnemyAttack;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Enemy extends NPC {
+public abstract class Enemy extends NPC implements Serializable {
     private int health;
     private List<EnemyAttack> attacks;
     private String dialog; // může být null

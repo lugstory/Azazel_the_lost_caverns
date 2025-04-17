@@ -2,7 +2,9 @@ package game;
 
 import world.rooms.Room;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable {
     private Player player;
     private Room[] allRooms;
     private Room currentRoom;
@@ -33,9 +35,24 @@ public class Game {
     }
 
     public boolean activateActiveItem() {
-        if (player.getActiveItem() == null) return false;
-        if (!player.getActiveItem().isReady()) return false;
+        if (player.getActiveItem() == null) {
+            System.out.println("You don't have an active item.");
+            return false;
+        };
+        if (!player.getActiveItem().isReady()) {
+            System.out.println("Your item is still on cooldown ("+player.getActiveItem().getCooldown()+").");
+            return false;
+        }
+        System.out.println("Activated the item.");
         player.getActiveItem().activate(this);
         return true;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setAllRooms(Room[] allRooms) {
+        this.allRooms = allRooms;
     }
 }

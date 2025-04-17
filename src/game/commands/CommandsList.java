@@ -11,6 +11,10 @@ public class CommandsList {
         registerCommand("walk", new Walk());
         registerCommand("activate", new Activate());
         registerCommand("fight", new Fight());
+        registerCommand("look", new Look());
+        registerCommand("info", new Info());
+        registerCommand("take", new Take());
+
 
     }
 

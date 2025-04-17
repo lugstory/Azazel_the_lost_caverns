@@ -4,15 +4,15 @@ import game.Player;
 
 import java.io.Serializable;
 
-public class BasicHit extends EnemyAttack implements Serializable {
+public class Bite extends EnemyAttack implements Serializable {
 
-    public BasicHit() {
-        super("Basic hit", 1);
+    public Bite() {
+        super("Bite", 3);
     }
 
     @Override
     public void executeOnPlayer(Player player) {
-        System.out.println("Player lost 1 health.");
+        System.out.println("The enemy bit you! You lost " + getDamage() + " HP.");
         player.setHealth(player.getHealth()-getDamage());
     }
 }

@@ -1,6 +1,8 @@
 package world.npcs;
 
-public abstract class NPC {
+import java.io.Serializable;
+
+public abstract class NPC implements Serializable {
     private final String name;
 
     public NPC(String name) {

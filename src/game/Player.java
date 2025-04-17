@@ -1,15 +1,17 @@
 package game;
 
 import fighting.attacks.player.PlayerAttack;
-import items.ActiveItem;
-import items.PassiveItem;
+import items.active.ActiveItem;
+import items.passive.PassiveItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
-    private int health; // 0–12
-    private int damage; // násobitel útoků
+public class Player implements Serializable {
+    private int health; // Aktuální zdraví
+    private int maxHealth; // Maximální zdraví
+    private int damage; // Násobitel útoků
     private int luck;
 
     private List<PassiveItem> passiveItems;
@@ -18,7 +20,8 @@ public class Player {
     private List<PlayerAttack> attacks;
 
     public Player() {
-        this.health = 3;
+        this.maxHealth = 12;
+        this.health = maxHealth;
         this.damage = 1;
         this.luck = 0;
         this.passiveItems = new ArrayList<>();
@@ -32,7 +35,19 @@ public class Player {
     }
 
     public void setHealth(int health) {
-        this.health = Math.max(0, Math.min(health, 12));
+        this.health = Math.max(0, Math.min(health, maxHealth));
+    }
+
+    // ==== Max Health ====
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+        if (this.health > maxHealth) {
+            this.health = maxHealth;
+        }
     }
 
     // ==== Damage a Luck ====
@@ -55,7 +70,7 @@ public class Player {
     // ==== Passive itemy ====
     public void addPassiveItem(PassiveItem item) {
         passiveItems.add(item);
-        item.applyEffect(this); // předpokládáme, že každý item něco dělá
+        item.applyEffect(this);
     }
 
     public List<PassiveItem> getPassiveItems() {
@@ -76,7 +91,6 @@ public class Player {
             activeItem.reduceCooldown();
         }
     }
-
 
     // ==== Útoky ====
     public List<PlayerAttack> getAttacks() {

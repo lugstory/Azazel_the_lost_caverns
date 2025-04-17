@@ -2,7 +2,9 @@ package fighting.attacks.enemy;
 
 import game.Player;
 
-public abstract class EnemyAttack {
+import java.io.Serializable;
+
+public abstract class EnemyAttack implements Serializable {
     private String name;
     private int damage;
 
