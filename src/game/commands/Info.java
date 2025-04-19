@@ -13,16 +13,16 @@ public class Info implements Command{
         System.out.println(" - Health: "+player.getHealth()+"/"+player.getMaxHealth());
         System.out.println(passiveItemsString());
         if (game.getPlayer().getActiveItem() != null) {
-            System.out.print(" - Active Item:: ");
+            System.out.print(" - Active Item: ");
             System.out.println(game.getPlayer().getActiveItem().getName()+": "+game.getPlayer().getActiveItem().getDescription());
         }
     }
     public String passiveItemsString(){
         StringBuilder itemsString = new StringBuilder();
         game.getPlayer().getPassiveItems().forEach(passiveItem -> {
-            itemsString.append(" - ").append(passiveItem).append(": ").append(passiveItem.getDescription());
+            itemsString.append("    - ").append(passiveItem).append(": ").append(passiveItem.getDescription()).append("\n");
         });
-        itemsString.insert(0," - Passive Items: ");
+        itemsString.insert(0," - Passive Items: \n");
         return itemsString.toString();
     }
     @Override

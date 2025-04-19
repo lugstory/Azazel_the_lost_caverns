@@ -6,14 +6,18 @@ import fighting.attacks.player.HeavySmash;
 import fighting.attacks.player.LuckyShot;
 import items.Item;
 import items.active.HealingPotion;
+import items.passive.Bomb;
+import items.passive.Key;
 import items.passive.SpiderAmulet;
 import world.npcs.Enemy;
 import world.npcs.NPC;
+import world.npcs.enemies.SecretGuy;
 import world.rooms.Room;
 import world.rooms.Type;
 import game.Game;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LevelBuilder {
@@ -32,24 +36,44 @@ public class LevelBuilder {
         List<EnemyAttack> spiderAttacks = new ArrayList<>();
         spiderAttacks.add(bite);
         spiderAttacks.add(toxicSpit);
-        Enemy spider = new Enemy("Giant Spider", 10, spiderAttacks, "Screee!") {};
+        Enemy spider = new Enemy("Giant Spider", 10, spiderAttacks, "Screee!") {
+            @Override
+            public void onDeath(Game game) {
+
+            }
+        };
 
 // Goblin Warrior
         List<EnemyAttack> goblinAttacks = new ArrayList<>();
         goblinAttacks.add(toxicSpit);
-        Enemy goblin = new Enemy("Goblin Warrior", 12, goblinAttacks) {};
+        Enemy goblin = new Enemy("Goblin Warrior", 12, goblinAttacks) {
+            @Override
+            public void onDeath(Game game) {
+
+            }
+        };
 
 // Skeleton Archer
         List<EnemyAttack> skeletonAttacks = new ArrayList<>();
         skeletonAttacks.add(arrowShot);
-        Enemy skeleton = new Enemy("Skeleton Archer", 9, skeletonAttacks) {};
+        Enemy skeleton = new Enemy("Skeleton Archer", 9, skeletonAttacks) {
+            @Override
+            public void onDeath(Game game) {
+
+            }
+        };
 
 // Ancient Dragon (Boss)
         List<EnemyAttack> dragonAttacks = new ArrayList<>();
         dragonAttacks.add(fireball);
         dragonAttacks.add(toxicSpit);
         dragonAttacks.add(arrowShot);
-        Enemy dragon = new Enemy("Ancient Dragon", 50, dragonAttacks, "You dare challenge me?") {};
+        Enemy dragon = new Enemy("Ancient Dragon", 50, dragonAttacks, "You dare challenge me?") {
+            @Override
+            public void onDeath(Game game) {
+
+            }
+        };
 
 
         // Předměty
@@ -57,26 +81,33 @@ public class LevelBuilder {
         Item amulet = new SpiderAmulet();
 
         // Místnosti
-        Room[] rooms = new Room[8];
+        List<Room> rooms = new ArrayList<>(8);
 
 // Room 0 - Entrance Hall
         List<Item> items0 = new ArrayList<>();
         List<NPC> npcs0 = new ArrayList<>();
-        List<Integer> neighbors0 = new ArrayList<>();
-        neighbors0.add(1);
-        neighbors0.add(2);
-        rooms[0] = new Room(game, "Entrance Hall", Type.SMALL, items0, npcs0, neighbors0);
+        npcs0.add(new SecretGuy());
+        List<Integer> neighbors0 = new ArrayList<>(4);
+        neighbors0 = new ArrayList<>(Collections.nCopies(4, null));
+        neighbors0.set(0,1);
+        rooms.add(new Room(game, "Entrance Hall", Type.SMALL, items0, npcs0, neighbors0));
+        ArrayList<Chest> chests = new ArrayList<>();
+        List<Item> itemss = new ArrayList<>();
+        itemss.add(new Key());
+        Chest chest = new Chest(itemss);
+        chests.add(chest);
+        rooms.get(0).setChests(chests);
 
 // Room 1 - Spider Nest
         List<Item> items1 = new ArrayList<>();
         items1.add(amulet);
         List<NPC> npcs1 = new ArrayList<>();
         npcs1.add(spider);
-        List<Integer> neighbors1 = new ArrayList<>();
-        neighbors1.add(0);
-        neighbors1.add(3);
-        rooms[1] = new Room(game, "Spider Nest", Type.SMALL, items1, npcs1, neighbors1);
-
+        List<Integer> neighbors1 = new ArrayList<>(4);
+        neighbors1 = new ArrayList<>(Collections.nCopies(4, null));
+        neighbors1.set(0,0);
+        rooms.add(new Room(game, "Spider Nest", Type.SMALL, items1, npcs1, neighbors1));
+/*
 // Room 2 - Goblin Tunnels
         List<Item> items2 = new ArrayList<>();
         items2.add(potion);
@@ -128,12 +159,15 @@ public class LevelBuilder {
         neighbors7.add(6);
         rooms[7] = new Room(game, "Dragon's Lair", Type.SMALL, items7, npcs7, neighbors7);
 
-
+*/
         game.setAllRooms(rooms);
-        game.setCurrentRoom(rooms[0]);
+        game.setCurrentRoom(rooms.get(0));
         game.getPlayer().addAttack(new BasicAttack());
         game.getPlayer().addAttack(new LuckyShot());
         game.getPlayer().addAttack(new HeavySmash());
+
+        game.getPlayer().addPassiveItem(new Key());
+        game.getPlayer().addPassiveItem(new Bomb());
 
 
         return game;

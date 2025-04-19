@@ -14,6 +14,8 @@ public class CommandsList {
         registerCommand("look", new Look());
         registerCommand("info", new Info());
         registerCommand("take", new Take());
+        registerCommand("open", new Open());
+        registerCommand("bomb",new UseBomb());
 
 
     }

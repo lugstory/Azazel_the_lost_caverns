@@ -59,6 +59,7 @@ public class CombatManager {
 
             if (enemy.getHealth() <= 0) {
                 System.out.println("\nThe enemy " + enemy.getName() + " was killed!");
+                enemy.onDeath(game);
                 game.getCurrentRoom().removeNpc(enemy);
                 player.reduceActiveItemCooldown();
                 pressEnter();

@@ -3,19 +3,20 @@ package game;
 import world.rooms.Room;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Game implements Serializable {
     private Player player;
-    private Room[] allRooms;
+    private List<Room> allRooms;
     private Room currentRoom;
 
-    public Game(Room[] allRooms, Room currentRoom) {
+    public Game(List<Room> allRooms, Room currentRoom) {
         this.player = new Player();
         this.allRooms = allRooms;
         this.currentRoom = currentRoom;
     }
 
-    public Room[] getAllRooms() {
+    public List<Room> getAllRooms() {
         return allRooms;
     }
 
@@ -27,7 +28,7 @@ public class Game implements Serializable {
         return player;
     }
     public Room getRoomAtIndex(int index) {
-        return allRooms[index];
+        return allRooms.get(index);
     }
 
     public void setCurrentRoom(Room currentRoom) {
@@ -38,7 +39,7 @@ public class Game implements Serializable {
         if (player.getActiveItem() == null) {
             System.out.println("You don't have an active item.");
             return false;
-        };
+        }
         if (!player.getActiveItem().isReady()) {
             System.out.println("Your item is still on cooldown ("+player.getActiveItem().getCooldown()+").");
             return false;
@@ -52,7 +53,11 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public void setAllRooms(Room[] allRooms) {
+    public void setAllRooms(List<Room> allRooms) {
         this.allRooms = allRooms;
     }
+    public void addRoom(Room room){
+        this.allRooms.add(room);
+    }
+
 }

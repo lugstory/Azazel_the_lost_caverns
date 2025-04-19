@@ -29,6 +29,7 @@ public class Take implements Command {
             }
 
             Item item = items.get(index);
+            items.remove(item);
             if (item instanceof PassiveItem){
                 game.getPlayer().addPassiveItem((PassiveItem) item);
             } else {

@@ -1,6 +1,7 @@
 package game;
 
 import fighting.attacks.player.PlayerAttack;
+import items.Item;
 import items.active.ActiveItem;
 import items.passive.PassiveItem;
 
@@ -66,6 +67,7 @@ public class Player implements Serializable {
     public void setLuck(int luck) {
         this.luck = Math.max(0, luck);
     }
+
 
     // ==== Passive itemy ====
     public void addPassiveItem(PassiveItem item) {

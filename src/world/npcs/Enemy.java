@@ -1,6 +1,7 @@
 package world.npcs;
 
 import fighting.attacks.enemy.EnemyAttack;
+import game.Game;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Random;
 
 public abstract class Enemy extends NPC implements Serializable {
     private int health;
-    private List<EnemyAttack> attacks;
+    protected List<EnemyAttack> attacks;
     private String dialog; // může být null
 
     public Enemy(String name, int health, List<EnemyAttack> attacks, String dialog) {
@@ -22,6 +23,7 @@ public abstract class Enemy extends NPC implements Serializable {
         this(name, health, attacks, null); // konstruktor bez dialogu
     }
 
+    public abstract void onDeath(Game game);
     public int getHealth() {
         return health;
     }
