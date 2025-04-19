@@ -2,10 +2,11 @@ package fighting.attacks.player;
 
 import world.npcs.Enemy;
 import game.Player;
-
-import java.io.Serializable;
-
-public abstract class PlayerAttack implements Serializable {
+/**
+ * An abstract class PlayerAttack,
+ * every class that extends this class should use the execute() mechanic.
+ */
+public abstract class PlayerAttack  {
     private final String name;
     private final int damage; // base damage
 
@@ -23,7 +24,10 @@ public abstract class PlayerAttack implements Serializable {
     }
 
     /**
-     * Attacks the enemy, may be influenced by the player's stats.
+     *
+     * @param player the Player object
+     * @param target the Enemy to execute on
+     * @return a boolean whether or not the attack was successful
      */
     public abstract boolean execute(Player player, Enemy target);
 }

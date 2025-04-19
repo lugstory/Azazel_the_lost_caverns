@@ -1,24 +1,25 @@
 package game;
 
 import fighting.attacks.player.PlayerAttack;
-import items.Item;
 import items.active.ActiveItem;
 import items.passive.PassiveItem;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player implements Serializable {
-    private int health; // Aktuální zdraví
-    private int maxHealth; // Maximální zdraví
-    private int damage; // Násobitel útoků
+/**
+ * A class that represents the Player, with fields that are crucial for the game
+ */
+public class Player  {
+    private int health; // The current health
+    private int maxHealth; // The maximum health
+    private int damage; // The damage multiplier
     private int luck;
 
-    private List<PassiveItem> passiveItems;
+    private final List<PassiveItem> passiveItems;
     private ActiveItem activeItem;
 
-    private List<PlayerAttack> attacks;
+    private final List<PlayerAttack> attacks;
 
     public Player() {
         this.maxHealth = 12;
@@ -51,7 +52,7 @@ public class Player implements Serializable {
         }
     }
 
-    // ==== Damage a Luck ====
+    // ==== Damage and Luck ====
     public int getDamage() {
         return damage;
     }
@@ -69,7 +70,7 @@ public class Player implements Serializable {
     }
 
 
-    // ==== Passive itemy ====
+    // ==== Passive items ====
     public void addPassiveItem(PassiveItem item) {
         passiveItems.add(item);
         item.applyEffect(this);
@@ -94,7 +95,7 @@ public class Player implements Serializable {
         }
     }
 
-    // ==== Útoky ====
+    // ==== Attacks ====
     public List<PlayerAttack> getAttacks() {
         return attacks;
     }

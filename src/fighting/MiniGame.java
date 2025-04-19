@@ -3,34 +3,29 @@ package fighting;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * A class used for the start() method.
+ * A minigame class that involves the player to type a specific letter.
+ */
 public class MiniGame {
 
-    public static void main(String[] args) {
-        int timeInSeconds = 5; // nastavíš požadovaný čas v sekundách
-        if (start(timeInSeconds)) {
-            System.out.println("You won!");
-        } else {
-            System.out.println("You lost!");
-        }
-    }
-
     public static boolean start(int timeInSeconds) {
-        // Generování náhodného písmena
+        // Generating a character
         char randomChar = generateRandomChar();
 
-        // Vytvoření a spuštění časovače
-        Timer timer = new Timer(timeInSeconds * 1000); // Předáme čas v milisekundách
+        // Making and starting the timer
+        Timer timer = new Timer(timeInSeconds * 1000L); // Předáme čas v milisekundách
         timer.start();
 
-        // Vytisknutí písmena
+        // Typing the letter
         System.out.println("Type the following letter: " + randomChar);
 
-        // Čtení vstupu uživatele v samostatném vlákně
+        // Reading the input in a different Thread
         Scanner scanner = new Scanner(System.in);
         String input = "";
 
         long startTime = System.currentTimeMillis();
-        long maxTime = timeInSeconds * 1000; // Maximální čas pro odpověď v milisekundách
+        long maxTime = timeInSeconds * 1000L; // Maximum time for response in milliseconds
 
         while (System.currentTimeMillis() - startTime < maxTime) {
             if (scanner.hasNextLine()) {
@@ -43,11 +38,12 @@ public class MiniGame {
 
         return input.length() == 1 && input.charAt(0) == randomChar;
     }
+
     public static boolean startMultiple(int timeInSeconds, int rounds) {
         while (rounds > 0) {
-            if(!start(timeInSeconds)){
+            if (!start(timeInSeconds)) {
                 return false;
-            };
+            }
             rounds--;
         }
         return true;
@@ -55,14 +51,14 @@ public class MiniGame {
 
     private static char generateRandomChar() {
         Random random = new Random();
-        return (char) ('a' + random.nextInt(26)); // Generuje písmena a-z
+        return (char) ('a' + random.nextInt(26)); // Generates letters a-z
     }
 
     static class Timer extends Thread {
         private boolean timeUp = false;
         private final long timeLimit;
 
-        // Konstruktor, který přijímá časový limit v milisekundách
+        // Constructor that accepts the time limit in milliseconds
         public Timer(long timeLimit) {
             this.timeLimit = timeLimit;
         }
@@ -70,11 +66,9 @@ public class MiniGame {
         @Override
         public void run() {
             try {
-                Thread.sleep(timeLimit); // Časovač trvá zadaný čas
+                Thread.sleep(timeLimit); // Timer runs for the given time
                 timeUp = true;
-                if (timeUp) {
-                    System.out.println("Time's up!\nPress ENTER to continue.");
-                }
+                System.out.println("Time's up!\nPress ENTER to continue.");
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }

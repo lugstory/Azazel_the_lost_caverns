@@ -2,9 +2,7 @@ package fighting.attacks.enemy;
 
 import game.Player;
 
-import java.io.Serializable;
-
-public class BasicHit extends EnemyAttack implements Serializable {
+public class BasicHit extends EnemyAttack {
 
     public BasicHit() {
         super("Basic hit", 1);

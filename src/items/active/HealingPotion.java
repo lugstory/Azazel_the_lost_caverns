@@ -2,9 +2,10 @@ package items.active;
 
 import game.Game;
 
-import java.io.Serializable;
-
-public class HealingPotion extends ActiveItem implements Serializable {
+/**
+ * Heals the player +5, if health + 5 is larger than maxHealth, then health = maxHealth
+ */
+public class HealingPotion extends ActiveItem  {
 
     public HealingPotion() {
         super("Healing potion", "A potion that came from a different planet.\nReplenishes itself.",3);
@@ -13,6 +14,10 @@ public class HealingPotion extends ActiveItem implements Serializable {
     @Override
     public void activate(Game game) {
         System.out.println("Used "+getName()+" to heal 5 HP.");
-        game.getPlayer().setHealth(game.getPlayer().getHealth()+5);
+        currentCooldown=cooldown;
+        int newHealth = game.getPlayer().getHealth() + 5;
+        int maxHealth = game.getPlayer().getMaxHealth();
+
+        game.getPlayer().setHealth(Math.min(newHealth, maxHealth));
     }
 }

@@ -4,14 +4,16 @@ import fighting.MiniGame;
 import game.Player;
 import world.npcs.Enemy;
 
-import java.io.Serializable;
 import java.util.Random;
 
-public class LuckyShot extends PlayerAttack implements Serializable {
+public class LuckyShot extends PlayerAttack  {
     public LuckyShot() {
         super("Lucky Shot", 3);
     }
 
+    /**
+     *
+     */
     @Override
     public boolean execute(Player player, Enemy target) {
         try {
@@ -29,6 +31,8 @@ public class LuckyShot extends PlayerAttack implements Serializable {
         if (rand.nextInt(100) < chance) {
             System.out.println("Lucky strike! You deal double damage!");
             target.setHealth(target.getHealth() - getDamage()); // extra damage navíc
+        } else {
+            System.out.println("Your luck ran out..");
         }
         return true;
     }

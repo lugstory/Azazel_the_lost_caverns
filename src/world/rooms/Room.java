@@ -3,32 +3,33 @@ package world.rooms;
 import game.Game;
 import items.Item;
 import world.Chest;
-import world.npcs.Enemy;
 import world.npcs.NPC;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-
-public class Room implements Serializable {
-    private Game game;
-    private String name;
-    private Type type;
-    private List<Item> items;
-    private List<NPC> npcs;
+/**
+ * Abstract class representing a room in the game.
+ * A room contains items, NPCs, chests, and has neighboring rooms that can be accessed.
+ */
+public abstract class Room {
+    private transient Game game;
+    private final String name;
+    private final List<Item> items;
+    private final List<NPC> npcs;
     private List<Integer> neighborsIndexes;
     private List<Chest> chests;
 
-    public Room(Game game, String name, Type type, List<Item> items, List<NPC> npcs, List<Integer> neighborsIndexes) {
+    public Room(Game game, String name, List<Item> items, List<NPC> npcs, List<Integer> neighborsIndexes) {
         this.game = game;
         this.name = name;
-        this.type = type;
         this.items = items;
         this.npcs = npcs;
         this.neighborsIndexes = neighborsIndexes;
     }
+    /**
+     * Prints the details of the room: ASCII art, available doors (neighboring rooms), and items and NPCs in the room.
+     */
     public void look() {
-        System.out.println("Room:");
+        System.out.println("Room "+name+":");
         System.out.println(asciiArt());
         System.out.println("Available doors: ");
         for (int i = 0; i < neighborsIndexes.size(); i++) {
@@ -48,21 +49,17 @@ public class Room implements Serializable {
             if (!npcs.isEmpty()) {
                 System.out.println("Enemies in the room:");
                 for (NPC npc : npcs) {
-                    System.out.println(" - " + npc.getName());
+                    System.out.println(" - " + npc.getName()+" (index = "+this.npcs.indexOf(npc)+")");
                 }
             }
 
             if (!items.isEmpty()) {
                 System.out.println("Items in the room:");
                 for (Item item : items) {
-                    System.out.println(" - " + item.getName()+" ("+item.getClass().getSuperclass().getSimpleName()+")");
+                    System.out.println(" - " + item.getName()+" ("+item.getClass().getSuperclass().getSimpleName()+")"+" (index = "+this.items.indexOf(item)+")");
                 }
             }
         }
-    }
-
-    public Type getType() {
-        return type;
     }
 
     public List<Item> getItems() {
@@ -82,6 +79,11 @@ public class Room implements Serializable {
     public void addItem(Item item){
         this.items.add(item);
     }
+    /**
+     * Returns a basic ASCII representation of the room layout.
+     *
+     * @return The ASCII art of the room.
+     */
     public String asciiArt(){
         return """
                 ╭─────────╮
@@ -102,5 +104,8 @@ public class Room implements Serializable {
 
     public void setNeighborsIndexes(List<Integer> neighborsIndexes) {
         this.neighborsIndexes = neighborsIndexes;
+    }
+    public void setGame(Game game){
+        this.game = game;
     }
 }

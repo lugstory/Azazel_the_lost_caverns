@@ -5,6 +5,9 @@ import items.Item;
 
 import java.util.List;
 
+/**
+ * A chest with some rewards.
+ */
 public class Chest {
     private List<Item> rewards;
 
@@ -12,6 +15,9 @@ public class Chest {
         this.rewards = rewards;
     }
 
+    /**
+     * Unlocks the chest
+     */
     public void unlock(Game game){
         rewards.forEach(reward -> game.getCurrentRoom().addItem(reward));
     }

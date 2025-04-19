@@ -3,13 +3,17 @@ package game.commands;
 import game.Game;
 import world.rooms.Room;
 
+/**
+ * A class that uses the Room.look() to list all of the items, npcs and more from the room itself
+ */
 public class Look implements Command {
     @Override
     public void execute(Game game, String[] args) {
-        // Získání aktuální místnosti
+        // Get the current room
         Room currentRoom = game.getCurrentRoom();
-
-        // Prohlédnutí místnosti
+        System.out.println("Current room id: "+game.getAllRooms().indexOf(currentRoom));
+        System.out.println("All rooms: "+game.getAllRooms());
+        // Look through the room
         currentRoom.look();
     }
 

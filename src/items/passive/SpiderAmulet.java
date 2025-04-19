@@ -2,9 +2,7 @@ package items.passive;
 
 import game.Player;
 
-import java.io.Serializable;
-
-public class SpiderAmulet extends PassiveItem implements Serializable {
+public class SpiderAmulet extends PassiveItem  {
     public SpiderAmulet() {
         super("Spider Amulet","Created with 5 kilometers of spider silk.");
     }

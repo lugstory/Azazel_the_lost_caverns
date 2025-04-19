@@ -4,10 +4,9 @@ import fighting.MiniGame;
 import game.Player;
 import world.npcs.Enemy;
 
-import java.io.Serializable;
 import java.util.Random;
 
-public class Stab extends PlayerAttack implements Serializable {
+public class Stab extends PlayerAttack  {
     public Stab() {
         super("Stab", 5);
     }
@@ -18,7 +17,7 @@ public class Stab extends PlayerAttack implements Serializable {
         if (!success) {
             System.out.println("You missed!");
             return false;
-        };
+        }
         Random rand = new Random();
         int chance = 50;
         if (rand.nextInt(100) < chance) {

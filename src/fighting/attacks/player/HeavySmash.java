@@ -4,9 +4,7 @@ import fighting.MiniGame;
 import game.Player;
 import world.npcs.Enemy;
 
-import java.io.Serializable;
-
-public class HeavySmash extends PlayerAttack implements Serializable {
+public class HeavySmash extends PlayerAttack  {
     public HeavySmash() {
         super("Heavy Smash", 5);
     }

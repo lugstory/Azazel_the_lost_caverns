@@ -4,9 +4,7 @@ import fighting.CombatManager;
 import fighting.MiniGame;
 import game.Player;
 
-import java.io.Serializable;
-
-public class Fireball extends EnemyAttack implements Serializable {
+public class Fireball extends EnemyAttack {
     public Fireball() {
         super("Fireball", 2); // Damage is set to 2 for fireball
     }

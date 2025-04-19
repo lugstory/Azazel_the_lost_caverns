@@ -1,0 +1,323 @@
+{
+  "player": {
+    "health": 12,
+    "maxHealth": 12,
+    "damage": 1,
+    "luck": 0,
+    "passiveItems": [
+      {
+        "name": "Key",
+        "description": "Allows you to open chests with \"open\"."
+      },
+      {
+        "type": "bomb",
+        "description": "Allows you to find secret rooms with \"bomb <doorId>.\""
+      }
+    ],
+    "activeItem": null,
+    "attacks": [
+      {
+        "type": "basicAttack",
+        "firstTime": true,
+        "name": "Basic attack",
+        "damage": 3
+      },
+      {
+        "type": "luckyShot",
+        "name": "Lucky Shot",
+        "damage": 3
+      },
+      {
+        "type": "heavySmash",
+        "name": "Heavy Smash",
+        "damage": 5
+      }
+    ]
+  },
+  "allRooms": [
+    {
+      "roomType": "basicRoom",
+      "name": "Entrance Hall",
+      "items": [],
+      "npcs": [],
+      "neighborsIndexes": [
+        null,
+        1,
+        null,
+        3
+      ],
+      "chests": [
+        {
+          "rewards": [
+            {
+              "type": "key",
+              "name": "Key",
+              "description": "Allows you to open chests with \"open\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Spider Nest",
+      "items": [
+        {
+          "type": "spiderAmulet",
+          "name": "Spider Amulet",
+          "description": "Created with 5 kilometers of spider silk."
+        }
+      ],
+      "npcs": [
+        null
+      ],
+      "neighborsIndexes": [
+        null,
+        null,
+        2,
+        0
+      ],
+      "chests": null
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Library",
+      "items": null,
+      "npcs": [
+        {
+          "type": "enemy",
+          "name": "Skeleton",
+          "health": 10,
+          "attacks": [
+            {
+              "type": "arrowShot"
+            },
+            {
+              "type": "basicHit"
+            }
+          ]
+        }
+      ],
+      "neighborsIndexes": [
+        1,
+        null,
+        null,
+        null
+      ],
+      "chests": null
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Dark Room",
+      "items": null,
+      "npcs": [
+        null
+      ],
+      "neighborsIndexes": [
+        null,
+        0,
+        4,
+        null
+      ],
+      "chests": [
+        {
+          "type": "knife"
+        }
+      ]
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Dog Room",
+      "items": [
+        {
+          "type": "healingPotion",
+          "name": "Healing Potion",
+          "description": "A healing potion"
+        }
+      ],
+      "npcs": [
+        {
+          "type": "enemy",
+          "name": "A dawg",
+          "health": 8,
+          "attacks": [
+            {
+              "type": "bite"
+            },
+            {
+              "type": "toxicSpit"
+            }
+          ]
+        },
+        {
+          "type": "enemy",
+          "name": "A big dawg",
+          "health": 25,
+          "attacks": [
+            {
+              "type": "bite"
+            },
+            {
+              "type": "toxicSpit"
+            },
+            {
+              "type": "groundSmash"
+            }
+          ]
+        }
+      ],
+      "neighborsIndexes": [
+        null,
+        null,
+        8,
+        7
+      ],
+      "chests": null
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Cat Room",
+      "items": [
+        null
+      ],
+      "npcs": [
+        {
+          "type": "enemy",
+          "name": "A cat",
+          "health": 8,
+          "attacks": [
+            {
+              "type": "bite"
+            },
+            {
+              "type": "toxicSpit"
+            }
+          ]
+        },
+        {
+          "type": "enemy",
+          "name": "A huge cat",
+          "health": 40,
+          "attacks": [
+            {
+              "type": "bite"
+            }
+          ]
+        }
+      ],
+      "neighborsIndexes": [
+        null,
+        null,
+        6,
+        null
+      ],
+      "chests": null
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "A harmless passage",
+      "items": [
+        null
+      ],
+      "npcs": [
+        null
+      ],
+      "neighborsIndexes": [
+        5,
+        null,
+        7,
+        null
+      ],
+      "chests": [
+        {
+          "rewards": [
+            {
+              "type": "deck"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Depressive room",
+      "items": [
+        null
+      ],
+      "npcs": [
+        {
+          "type": "enemy",
+          "health": 1,
+          "name": "Suicider",
+          "attacks": [
+            {
+              "type": "bite"
+            }
+          ]
+        }
+      ],
+      "neighborsIndexes": [
+        6,
+        4,
+        null,
+        null
+      ],
+      "chests": [
+        {
+          "rewards": [
+            {
+              "type": "bomb",
+              "description": "Allows you to find secret rooms with \"bomb <doorId>.\""
+            },
+            {
+              "type": "bomb",
+              "description": "Allows you to find secret rooms with \"bomb <doorId>.\""
+            },
+            {
+              "type": "key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Emptiness.. unless..",
+      "items": [
+        null
+      ],
+      "npcs": [
+        {
+          "type": "teller"
+        }
+      ],
+      "neighborsIndexes": [
+        4,
+        null,
+        9,
+        null
+      ],
+      "chests": null
+    },
+    {
+      "roomType": "basicRoom",
+      "name": "Boss room",
+      "items": [
+        null
+      ],
+      "npcs": [
+        {
+          "type": "boss"
+        }
+      ],
+      "neighborsIndexes": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "chests": null
+    }
+
+  ]
+}

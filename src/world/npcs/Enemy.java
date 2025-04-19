@@ -3,11 +3,14 @@ package world.npcs;
 import fighting.attacks.enemy.EnemyAttack;
 import game.Game;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Enemy extends NPC implements Serializable {
+/**
+ * A class representing an enemy NPC .
+ * The enemy has health, a list of possible attacks, and optional dialogue.
+ */
+public class Enemy extends NPC  {
     private int health;
     protected List<EnemyAttack> attacks;
     private String dialog; // může být null
@@ -20,10 +23,13 @@ public abstract class Enemy extends NPC implements Serializable {
     }
 
     public Enemy(String name, int health, List<EnemyAttack> attacks) {
-        this(name, health, attacks, null); // konstruktor bez dialogu
+        this(name, health, attacks, null); // without dialog
     }
-
-    public abstract void onDeath(Game game);
+    /**
+     * Abstract method to be implemented for handling the death of the enemy.
+     *
+     */
+    public void onDeath(Game game){}
     public int getHealth() {
         return health;
     }

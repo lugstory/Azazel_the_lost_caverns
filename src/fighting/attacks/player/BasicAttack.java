@@ -5,10 +5,7 @@ import fighting.MiniGame;
 import game.Player;
 import world.npcs.Enemy;
 
-import java.io.Serializable;
-import java.util.Scanner;
-
-public class BasicAttack extends PlayerAttack implements Serializable {
+public class BasicAttack extends PlayerAttack  {
     private boolean firstTime = true;
     public BasicAttack() {
         super("Basic attack", 3);

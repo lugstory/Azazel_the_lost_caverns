@@ -9,12 +9,21 @@ import world.npcs.Enemy;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * A class that manages all of the combat in the game - mainly the startCombat method
+ */
 public class CombatManager {
     public static void pressEnter() {
         System.out.println("Press ENTER to continue.");
         new Scanner(System.in).nextLine();
     }
 
+    /**
+     *
+     * @param game the Game object
+     * @param enemy the enemy which to start combat with
+     * @param scanner a Scanner object to use
+     */
     public static void startCombat(Game game, Enemy enemy, Scanner scanner) {
         Player player = game.getPlayer();
 
@@ -35,9 +44,9 @@ public class CombatManager {
                     System.out.print("Pick the attack (1-" + attacks.size() + "): ");
                     choice = Integer.parseInt(scanner.nextLine());
 
-                    // Zkontroluj, zda je číslo v požadovaném rozsahu
+                    // A check if choice is in range
                     if (choice >= 1 && choice <= attacks.size()) {
-                        break;  // Pokud je volba platná, ukončíme smyčku
+                        break;  // If it's valid, break
                     } else {
                         System.out.println("Invalid input. Please enter a number between 1 and " + attacks.size() + ".");
                     }
@@ -56,7 +65,7 @@ public class CombatManager {
             } else {
                 System.out.println("You missed!");
             }
-
+            //the enemy got killed, remove it from the room and break
             if (enemy.getHealth() <= 0) {
                 System.out.println("\nThe enemy " + enemy.getName() + " was killed!");
                 enemy.onDeath(game);

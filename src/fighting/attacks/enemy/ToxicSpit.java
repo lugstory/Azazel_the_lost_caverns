@@ -4,9 +4,7 @@ import fighting.CombatManager;
 import fighting.MiniGame;
 import game.Player;
 
-import java.io.Serializable;
-
-public class ToxicSpit extends EnemyAttack implements Serializable {
+public class ToxicSpit extends EnemyAttack {
     public ToxicSpit() {
         super("Toxic Spit", 1);
     }

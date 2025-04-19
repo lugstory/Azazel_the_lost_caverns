@@ -3,9 +3,7 @@ package fighting.attacks.enemy;
 import fighting.MiniGame;
 import game.Player;
 
-import java.io.Serializable;
-
-public class ArrowShot extends EnemyAttack implements Serializable {
+public class ArrowShot extends EnemyAttack {
     public ArrowShot() {
         super("Arrow Shot", 2);
     }

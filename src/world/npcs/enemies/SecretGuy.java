@@ -1,14 +1,15 @@
 package world.npcs.enemies;
 
 import fighting.attacks.enemy.Blessing;
-import fighting.attacks.enemy.EnemyAttack;
 import game.Game;
 import game.Player;
 import world.npcs.Enemy;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * A special "enemy" that is only findable in Ultra secret rooms
+ */
 public class SecretGuy extends Enemy {
 
     public SecretGuy() {

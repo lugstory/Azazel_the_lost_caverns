@@ -4,9 +4,7 @@ import fighting.MiniGame;
 import game.Player;
 import world.npcs.Enemy;
 
-import java.io.Serializable;
-
-public class QuickStrike extends PlayerAttack implements Serializable {
+public class QuickStrike extends PlayerAttack  {
     public QuickStrike() {
         super("Quick Strike", 2);
     }

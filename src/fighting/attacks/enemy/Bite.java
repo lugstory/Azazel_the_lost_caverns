@@ -2,9 +2,7 @@ package fighting.attacks.enemy;
 
 import game.Player;
 
-import java.io.Serializable;
-
-public class Bite extends EnemyAttack implements Serializable {
+public class Bite extends EnemyAttack {
 
     public Bite() {
         super("Bite", 3);

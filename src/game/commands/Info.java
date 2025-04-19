@@ -3,6 +3,9 @@ package game.commands;
 import game.Game;
 import game.Player;
 
+/**
+ * A command that prints the information about the player
+ */
 public class Info implements Command{
     Game game;
     @Override
@@ -17,11 +20,13 @@ public class Info implements Command{
             System.out.println(game.getPlayer().getActiveItem().getName()+": "+game.getPlayer().getActiveItem().getDescription());
         }
     }
-    public String passiveItemsString(){
+
+    /**
+     * @return a string with the passive items
+     */
+    private String passiveItemsString(){
         StringBuilder itemsString = new StringBuilder();
-        game.getPlayer().getPassiveItems().forEach(passiveItem -> {
-            itemsString.append("    - ").append(passiveItem).append(": ").append(passiveItem.getDescription()).append("\n");
-        });
+        game.getPlayer().getPassiveItems().forEach(passiveItem -> itemsString.append("    - ").append(passiveItem).append(": ").append(passiveItem.getDescription()).append("\n"));
         itemsString.insert(0," - Passive Items: \n");
         return itemsString.toString();
     }

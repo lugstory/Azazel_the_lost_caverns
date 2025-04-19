@@ -8,6 +8,9 @@ import world.rooms.Room;
 
 import java.util.Scanner;
 
+/**
+ * A fight command that uses the CombatManager to start fights
+ */
 public class Fight implements Command {
 
     @Override
@@ -32,12 +35,10 @@ public class Fight implements Command {
         }
 
         NPC npc = currentRoom.getNpcs().get(enemyIndex);
-        if (!(npc instanceof Enemy)) {
+        if (!(npc instanceof Enemy enemy)) {
             System.out.println("This NPC is not an enemy.");
             return;
         }
-
-        Enemy enemy = (Enemy) npc;
 
         if (enemy.getDialog() != null) {
             System.out.println("Enemy "+enemy.getName()+" says: " + enemy.getDialog());

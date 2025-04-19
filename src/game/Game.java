@@ -2,13 +2,15 @@ package game;
 
 import world.rooms.Room;
 
-import java.io.Serializable;
 import java.util.List;
-
-public class Game implements Serializable {
+/**
+ * Represents the state of the game, including the player, the rooms, and the current room the player is in.
+ * Handles interactions such as activating items and managing room navigation.
+ */
+public class Game  {
     private Player player;
     private List<Room> allRooms;
-    private Room currentRoom;
+    private transient Room currentRoom;
 
     public Game(List<Room> allRooms, Room currentRoom) {
         this.player = new Player();
@@ -34,7 +36,11 @@ public class Game implements Serializable {
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-
+    /**
+     * Activates the player's active item, if it is available and not on cooldown.
+     *
+     * @return True if the item was activated, false otherwise.
+     */
     public boolean activateActiveItem() {
         if (player.getActiveItem() == null) {
             System.out.println("You don't have an active item.");

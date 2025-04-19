@@ -2,9 +2,7 @@ package fighting.attacks.enemy;
 
 import game.Player;
 
-import java.io.Serializable;
-
-public class GroundSmash extends EnemyAttack implements Serializable {
+public class GroundSmash extends EnemyAttack {
     public GroundSmash() {
         super("Ground Smash", 3);
     }

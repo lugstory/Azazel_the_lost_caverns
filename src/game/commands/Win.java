@@ -2,15 +2,14 @@ package game.commands;
 
 import game.Game;
 
-public class Activate implements Command{
-    public Activate() {}
-
+public class Win implements Command{
     @Override
     public void execute(Game game, String[] args) {
-        game.activateActiveItem();
+        System.out.println("You found the command to win the game! congratulations!");
     }
+
     @Override
     public String getUsage() {
-        return "activate - Activates your active item.";
+        return "sssh";
     }
 }

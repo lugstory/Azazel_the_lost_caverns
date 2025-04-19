@@ -16,17 +16,17 @@
 ![Mapa](https://i.postimg.cc/dtyKyh60/mapa.png)
 
 ### Důležité postavy: Kdo se ve hře vyskytuje? (např. spojenci, nepřátelé, neutrální postavy)
-- game obsahuje pouze nepřátele - příšery.
+- Hra obsahuje pouze nepřátele - příšery.
 
 ### Předměty a inventář: Jaké předměty lze sbírat? Jaký mají účel?
 - Inventář funguje na principu sebrat a nechat - hráč sbírá předměty a ty mu dávají pasivní efekty.
     Dále má hráč k dispozici jeden slot na aktivní předmět, který se nabíjí při dokončení místnosti.
 
 ### Herní mechaniky: Jaké herní funkce bude hra obsahovat? (např. možnost použití předmětů, pohyb mezi místnostmi, interakce s postavami)
-- Systém zdraví - hrou se dynamicky může měnit maximální počet životů
-- Systém boje - těžký způsob boje, který je možno se naučit.
-- Využívání aktivních předmětů.
-- Pohyb mezi místnostmi pomocí dveří v každé místnosti.
+- Systém zdraví - hrou se dynamicky může měnit maximální počet životů (sběrem itemů)
+- Systém boje - těžký způsob boje, který je možno se naučit - podle těžkosti nepřítele bude minihra těžší, nebo lehčí. Například u velmi těžkých bude muset uživatel napsat náhodné písmeno, které se vypíše a on ho bude muset opsat do časového limitu (0,5s, 1s, 4s...)
+- Využívání aktivních předmětů. (viz. příkaz ``aktivuj``)
+- Pohyb mezi místnostmi pomocí dveří v každé místnosti. (viz. příkaz ``jdi``)
 
 ### Seznam příkazů: Jaké příkazy bude hráč moci použít? (např. jdi, vezmi, pouzij, mluv) Jak bude vypadat formát jejich zápisu ve hře. 
 1. jdi ``<číslo dveří>``

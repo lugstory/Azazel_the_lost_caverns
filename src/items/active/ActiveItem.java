@@ -3,9 +3,10 @@ package items.active;
 import game.Game;
 import items.Item;
 
-import java.io.Serializable;
-
-public abstract class ActiveItem extends Item implements Serializable {
+/**
+ * A class that inherits from Item and represents an active item with a cooldown
+ */
+public class ActiveItem extends Item  {
     protected int cooldown;
     protected int currentCooldown = 0;
 
@@ -48,5 +49,8 @@ public abstract class ActiveItem extends Item implements Serializable {
         this.currentCooldown = cooldown;
     }
 
-    public abstract void activate(Game game); // může ovlivnit hráče, místnost atd.
+    /**
+     * Activates the item's ability
+     */
+    public void activate(Game game){}
 }
